@@ -1,0 +1,304 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   ProductPulse AI — Design Token System
+   Single source of truth for color, type, radius and shadow tokens.
+   Referenced by Tailwind utilities below via @theme, and by raw CSS
+   variables for cases (like charts) that need the hex value directly.
+   ========================================================================== */
+
+:root {
+  /* Brand — Indigo. Primary actions, active nav, links, primary chart series. */
+  --color-brand-50: #eef2ff;
+  --color-brand-100: #e0e7ff;
+  --color-brand-200: #c7d2fe;
+  --color-brand-300: #a5b4fc;
+  --color-brand-400: #818cf8;
+  --color-brand-500: #6366f1;
+  --color-brand-600: #4f46e5;
+  --color-brand-700: #4338ca;
+  --color-brand-800: #3730a3;
+  --color-brand-900: #312e81;
+
+  /* AI — Violet. Reserved for AI-generated content (insights, roadmap reasoning). */
+  --color-ai-50: #f5f3ff;
+  --color-ai-100: #ede9fe;
+  --color-ai-400: #a78bfa;
+  --color-ai-500: #8b5cf6;
+  --color-ai-600: #7c3aed;
+  --color-ai-700: #6d28d9;
+
+  /* Success — Emerald. Positive sentiment, completed states. */
+  --color-success-50: #ecfdf5;
+  --color-success-100: #d1fae5;
+  --color-success-500: #10b981;
+  --color-success-600: #059669;
+  --color-success-700: #047857;
+
+  /* Warning — Amber. Medium priority, alerts. */
+  --color-warning-50: #fffbeb;
+  --color-warning-100: #fef3c7;
+  --color-warning-500: #f59e0b;
+  --color-warning-600: #d97706;
+  --color-warning-700: #b45309;
+
+  /* Danger — Red. Negative sentiment, errors, destructive actions. */
+  --color-danger-50: #fef2f2;
+  --color-danger-100: #fee2e2;
+  --color-danger-500: #ef4444;
+  --color-danger-600: #dc2626;
+  --color-danger-700: #b91c1c;
+
+  /* Neutral — Zinc. Backgrounds, borders, text hierarchy. */
+  --color-zinc-50: #fafafa;
+  --color-zinc-100: #f4f4f5;
+  --color-zinc-200: #e4e4e7;
+  --color-zinc-300: #d4d4d8;
+  --color-zinc-400: #a1a1aa;
+  --color-zinc-500: #71717a;
+  --color-zinc-600: #52525b;
+  --color-zinc-700: #3f3f46;
+  --color-zinc-800: #27272a;
+  --color-zinc-900: #18181b;
+  --color-zinc-950: #09090b;
+
+  /* Semantic surface tokens — Light theme (default) */
+  --surface-app: var(--color-zinc-50);
+  --surface-card: #ffffff;
+  --surface-card-hover: var(--color-zinc-50);
+  --surface-sunken: var(--color-zinc-100);
+  --surface-border: var(--color-zinc-200);
+  --surface-border-strong: var(--color-zinc-300);
+
+  --text-primary: var(--color-zinc-900);
+  --text-secondary: var(--color-zinc-500);
+  --text-tertiary: var(--color-zinc-400);
+  --text-inverse: #ffffff;
+
+  --shadow-color: 220 3% 15%;
+}
+
+.dark {
+  --surface-app: var(--color-zinc-950);
+  --surface-card: var(--color-zinc-900);
+  --surface-card-hover: var(--color-zinc-800);
+  --surface-sunken: #131315;
+  --surface-border: var(--color-zinc-800);
+  --surface-border-strong: var(--color-zinc-700);
+
+  --text-primary: var(--color-zinc-50);
+  --text-secondary: var(--color-zinc-400);
+  --text-tertiary: var(--color-zinc-600);
+  --text-inverse: var(--color-zinc-950);
+
+  --shadow-color: 220 40% 2%;
+}
+
+/* --------------------------------------------------------------------------
+   Tailwind v4 theme wiring — exposes the tokens above as utility classes:
+   bg-brand-600, text-secondary, bg-surface, border-default, rounded-card, etc.
+   -------------------------------------------------------------------------- */
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+  --color-brand-50: var(--color-brand-50);
+  --color-brand-100: var(--color-brand-100);
+  --color-brand-200: var(--color-brand-200);
+  --color-brand-300: var(--color-brand-300);
+  --color-brand-400: var(--color-brand-400);
+  --color-brand-500: var(--color-brand-500);
+  --color-brand-600: var(--color-brand-600);
+  --color-brand-700: var(--color-brand-700);
+  --color-brand-800: var(--color-brand-800);
+  --color-brand-900: var(--color-brand-900);
+
+  --color-ai-50: var(--color-ai-50);
+  --color-ai-100: var(--color-ai-100);
+  --color-ai-400: var(--color-ai-400);
+  --color-ai-500: var(--color-ai-500);
+  --color-ai-600: var(--color-ai-600);
+  --color-ai-700: var(--color-ai-700);
+
+  --color-success-50: var(--color-success-50);
+  --color-success-100: var(--color-success-100);
+  --color-success-500: var(--color-success-500);
+  --color-success-600: var(--color-success-600);
+  --color-success-700: var(--color-success-700);
+
+  --color-warning-50: var(--color-warning-50);
+  --color-warning-100: var(--color-warning-100);
+  --color-warning-500: var(--color-warning-500);
+  --color-warning-600: var(--color-warning-600);
+  --color-warning-700: var(--color-warning-700);
+
+  --color-danger-50: var(--color-danger-50);
+  --color-danger-100: var(--color-danger-100);
+  --color-danger-500: var(--color-danger-500);
+  --color-danger-600: var(--color-danger-600);
+  --color-danger-700: var(--color-danger-700);
+
+  --color-zinc-50: var(--color-zinc-50);
+  --color-zinc-100: var(--color-zinc-100);
+  --color-zinc-200: var(--color-zinc-200);
+  --color-zinc-300: var(--color-zinc-300);
+  --color-zinc-400: var(--color-zinc-400);
+  --color-zinc-500: var(--color-zinc-500);
+  --color-zinc-600: var(--color-zinc-600);
+  --color-zinc-700: var(--color-zinc-700);
+  --color-zinc-800: var(--color-zinc-800);
+  --color-zinc-900: var(--color-zinc-900);
+  --color-zinc-950: var(--color-zinc-950);
+
+  /* Semantic surface/text colors as first-class utilities:
+     bg-surface, bg-surface-card, text-primary, text-secondary, border-default */
+  --color-surface: var(--surface-app);
+  --color-surface-card: var(--surface-card);
+  --color-surface-card-hover: var(--surface-card-hover);
+  --color-surface-sunken: var(--surface-sunken);
+  --color-border-default: var(--surface-border);
+  --color-border-strong: var(--surface-border-strong);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-tertiary: var(--text-tertiary);
+  --color-text-inverse: var(--text-inverse);
+
+  /* Radius scale — cards 14px, buttons/inputs 10px, modals 18px */
+  --radius-input: 10px;
+  --radius-button: 10px;
+  --radius-card: 14px;
+  --radius-modal: 18px;
+
+  /* Soft, restrained elevation. No heavy floating cards. */
+  --shadow-xs: 0 1px 2px hsl(var(--shadow-color) / 0.04);
+  --shadow-sm: 0 1px 3px hsl(var(--shadow-color) / 0.06), 0 1px 2px hsl(var(--shadow-color) / 0.04);
+  --shadow-md: 0 4px 12px hsl(var(--shadow-color) / 0.08), 0 2px 4px hsl(var(--shadow-color) / 0.04);
+  --shadow-lg: 0 12px 24px hsl(var(--shadow-color) / 0.10), 0 4px 8px hsl(var(--shadow-color) / 0.04);
+}
+
+/* --------------------------------------------------------------------------
+   Base layer
+   -------------------------------------------------------------------------- */
+@layer base {
+  * {
+    border-color: var(--surface-border);
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--surface-app);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    transition: background-color 150ms ease, color 150ms ease;
+  }
+
+  /* Visible focus states everywhere — accessibility is not optional. */
+  :focus-visible {
+    outline: 2px solid var(--color-brand-500);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  ::selection {
+    background-color: var(--color-brand-200);
+    color: var(--color-brand-900);
+  }
+}
+
+@layer components {
+  /* --------------------------------------------------------------------
+     Typography scale. Named by role, not by size, so usage stays
+     consistent as the app grows — never reach for an arbitrary text-*.
+     -------------------------------------------------------------------- */
+
+  /* Hero — marketing/empty-state moments and large KPI stat values. */
+  .text-hero {
+    font-size: 2.5rem;
+    line-height: 1.15;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  /* Page Heading — top of every page (e.g. "Dashboard", "Products"). */
+  .text-page-heading {
+    font-size: 1.5rem;
+    line-height: 1.3;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+  }
+
+  /* Section Heading — groups of content within a page. */
+  .text-section-heading {
+    font-size: 1.125rem;
+    line-height: 1.4;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  /* Card Heading — titles inside cards/panels/table headers. */
+  .text-card-heading {
+    font-size: 0.9375rem;
+    line-height: 1.4;
+    font-weight: 600;
+  }
+
+  /* Body — default reading text. */
+  .text-body {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    font-weight: 400;
+  }
+
+  /* Small — secondary/support text. */
+  .text-small {
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    font-weight: 400;
+  }
+
+  /* Caption — metadata, timestamps, helper text under inputs. */
+  .text-caption {
+    font-size: 0.75rem;
+    line-height: 1.4;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+  }
+}
+
+@layer utilities {
+  /* Utility for skeleton loaders used across the app (cards, tables, charts). */
+  .skeleton-pulse {
+    background: linear-gradient(
+      90deg,
+      var(--surface-sunken) 25%,
+      var(--surface-border) 37%,
+      var(--surface-sunken) 63%
+    );
+    background-size: 400% 100%;
+    animation: skeleton-loading 1.4s ease infinite;
+  }
+
+  @keyframes skeleton-loading {
+    0% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0 50%;
+    }
+  }
+
+  /* Respect reduced-motion preferences across the app. */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
